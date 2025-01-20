@@ -26,7 +26,7 @@ basic.forever(function () {
     while (true) {
         basic.pause(200)
         bullet.change(LedSpriteProperty.Y, -1)
-        if (bullet.isTouchingEdge()) {
+        if (bullet.get(LedSpriteProperty.X) == 0) {
             bullet.delete()
             break;
         }
@@ -36,5 +36,7 @@ basic.forever(function () {
     if (bullet.isTouching(enemy)) {
         bullet.delete()
         enemy.delete()
+        enemy = game.createSprite(randint(0, 4), 0)
+        bullet = game.createSprite(airplane.get(LedSpriteProperty.X), airplane.get(LedSpriteProperty.Y))
     }
 })
