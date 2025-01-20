@@ -14,10 +14,6 @@ basic.forever(function () {
     while (true) {
         basic.pause(1000)
         enemy.change(LedSpriteProperty.Y, 1)
-        if (bullet.isTouching(enemy)) {
-            enemy.delete()
-            break;
-        }
         if (enemy.isTouchingEdge() || airplane.isTouching(enemy)) {
             enemy.delete()
             game.removeLife(1)
@@ -34,9 +30,11 @@ basic.forever(function () {
             bullet.delete()
             break;
         }
-        if (bullet.isTouching(enemy)) {
-            bullet.delete()
-            break;
-        }
+    }
+})
+basic.forever(function () {
+    if (bullet.isTouching(enemy)) {
+        bullet.delete()
+        enemy.delete()
     }
 })
