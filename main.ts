@@ -8,7 +8,7 @@ let bullet: game.LedSprite = null
 let enemy: game.LedSprite = null
 let airplane: game.LedSprite = null
 airplane = game.createSprite(2, 4)
-game.setLife(3)
+let life = 3
 basic.forever(function () {
     enemy = game.createSprite(randint(0, 4), 0)
     while (true) {
@@ -16,7 +16,10 @@ basic.forever(function () {
         enemy.change(LedSpriteProperty.Y, 1)
         if (enemy.isTouchingEdge() || airplane.isTouching(enemy)) {
             enemy.delete()
-            game.removeLife(1)
+            life += -1
+            if (life <= 0) {
+                game.gameOver()
+            }
             break;
         }
     }
@@ -26,7 +29,7 @@ basic.forever(function () {
     while (true) {
         basic.pause(200)
         bullet.change(LedSpriteProperty.Y, -1)
-        if (bullet.get(LedSpriteProperty.X) == 0) {
+        if (bullet.get(LedSpriteProperty.Y) == 0) {
             bullet.delete()
             break;
         }
