@@ -1,4 +1,6 @@
-
+# Introduction
+該專案為 114 年彰化區寒假國中程式設計訓練營。<br>
+專案內容為利用 microbit 實現射擊遊戲。
 > 在 [https://alifestone.github.io/snake/](https://alifestone.github.io/snake/) 打開此頁面
 
 ## 作為擴充功能使用
